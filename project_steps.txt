@@ -1,0 +1,29 @@
+1. Create Environments for the Project
+    A. We are going to use Python with 3.9 Version
+2. Basic Structure for Data Science Project
+    A. We are going to create .gitignore files which will be responsible for to ignore the
+       mentioned files inside that file which github ignores while pushing the code in github.
+    B. We are going to create LICENSE and README.MD file for the LICENSE of the code and the details
+       of the Project.
+    C. We are going to create requirements.txt file where we mention the libraries which we use for
+    our project.
+    C. Create Setup.py file which will help to create packages for this project
+    D. Install requirements-->pip install -r requirements.txt
+    E. Create setup.cfg file where Here we are storing meta data information of the setup file
+       the licenses details and then we want to mention the classifier
+       where we define the python versions first on which our package can work
+       and then we specify that our code will be os independent.Then in [options] here we specify is that except our requirements for this work
+       if we need anything 3rd party package then that we have mentioned here and then 
+       we can mention bare minimum python version where my code can work if I try
+       to create a new environment less than that version code will not run then
+       Then in [options.extras_require] we specify some extra options like 
+       testing = here we mentioned all the libraries which will be used for different
+       test cases such as pytest,mypy,flake8,tox,black.
+       Then [options.package_data] we specify that if we have some empty files
+       code will not throw any error bcz we have __init__.py which can be blank always
+       thats why we specified py.typed
+       [flake8] will check in my codes the length of code lines maximum 160
+       and it will not check __init__.py so i mention it on exclude.
+    F. Create pyproject.toml file.Here in [build system] we are building the system where setuptoolm 
+       version must be >=42 and it will wheel and the back end of the build system should be stored the meta data in a file.[tool.pytest.ini_options] this initialize pytest options and it will say for pytest just look into tests folder not anywhere else.[tool.mypy] this will say that the mypy file will focus on only the src folder not anywhere else and if any missing import just ignore it else it will throw an error that's why we have to specify it as true
+    G. Create a init_setup.sh file where we write our conda env creation and activation etc ands we use echo command which will print the start end and some log about the code in that script.(in git bash we have to run bash init_setup.sh)
